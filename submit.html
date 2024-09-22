@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Assessment</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .container { max-width: 400px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; color: #35424a; }
+        button { width: 100%; padding: 10px; background: #35424a; color: #fff; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #45a049; }
+        .dialog { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center; }
+        .dialog-content { background: #fff; padding: 20px; border-radius: 8px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Submission Confirmation</h1>
+        <p>Are you sure you want to submit your assessment?</p>
+        <button id="submitButton">Submit</button>
+        <button id="reviewButton">Review Answers</button>
+    </div>
+
+    <div class="dialog" id="confirmationDialog">
+        <div class="dialog-content">
+            <h2>Confirm Submission</h2>
+            <p>Please confirm that you want to submit your assessment.</p>
+            <button id="confirmSubmitButton">Yes, Submit</button>
+            <button id="cancelButton">No, Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        const submitButton = document.getElementById('submitButton');
+        const confirmationDialog = document.getElementById('confirmationDialog');
+        const confirmSubmitButton = document.getElementById('confirmSubmitButton');
+        const cancelButton = document.getElementById('cancelButton');
+
+        // Show confirmation dialog
+        submitButton.addEventListener('click', () => {
+            confirmationDialog.style.display = 'flex';
+        });
+
+        // Confirm submission
+        confirmSubmitButton.addEventListener('click', () => {
+            // Redirect to Result Page
+            window.location.href = "result.html"; // Change to your actual result page URL
+        });
+
+        // Close dialog
+        cancelButton.addEventListener('click', () => {
+            confirmationDialog.style.display = 'none';
+        });
+
+        // Review answers button logic (to be implemented as needed)
+        document.getElementById('reviewButton').addEventListener('click', () => {
+            // Redirect to review answers page or section
+            alert("Redirecting to review your answers...");
+        });
+    </script>
+</body>
+</html>

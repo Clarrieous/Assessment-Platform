@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Compatibility Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #35424a;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #35424a;
+            color: #ffffff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>System Compatibility Check</h1>
+        <div id="systemSpecs" style="display: none;">
+            <p>Operating System: <span id="os"></span></p>
+            <p>RAM: <span id="ram"></span> GB</p>
+            <p>CPU Cores: <span id="cpu"></span></p>
+            <p>Storage: <span id="storage"></span> GB</p>
+        </div>
+        <div class="form-group">
+            <button id="checkButton">Run Diagnostics</button>
+        </div>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        // Predefined system specifications (for demonstration)
+        const systemSpecs = {
+            os: "Windows",
+            ram: 16, // GB
+            cpu: 4, // Cores
+            storage: 256 // GB
+        };
+
+        // Function to display system specs and check compatibility
+        function checkCompatibility() {
+            document.getElementById('os').textContent = systemSpecs.os;
+            document.getElementById('ram').textContent = systemSpecs.ram;
+            document.getElementById('cpu').textContent = systemSpecs.cpu;
+            document.getElementById('storage').textContent = systemSpecs.storage;
+            document.getElementById('systemSpecs').style.display = 'block';
+
+            let compatibilityMessage = '';
+
+            // Define compatibility criteria (example criteria)
+            if (systemSpecs.os === "Windows" && systemSpecs.ram >= 8 && systemSpecs.cpu >= 4 && systemSpecs.storage >= 100) {
+                compatibilityMessage = 'Your system is compatible!';
+                // Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = "pre-assessment-instructions.html"; // Update with your actual instructions page
+                }, 2000);
+            } else if (systemSpecs.os === "macOS" && systemSpecs.ram >= 8 && systemSpecs.cpu >= 2 && systemSpecs.storage >= 100) {
+                compatibilityMessage = 'Your system is compatible!';
+                setTimeout(() => {
+                    window.location.href = "pre-assessment-instructions.html"; // Update with your actual instructions page
+                }, 2000);
+            } else if (systemSpecs.os === "Linux" && systemSpecs.ram >= 4 && systemSpecs.cpu >= 1 && systemSpecs.storage >= 50) {
+                compatibilityMessage = 'Your system is compatible!';
+                setTimeout(() => {
+                    window.location.href = "pre-assessment-instructions.html"; // Update with your actual instructions page
+                }, 2000);
+            } else {
+                compatibilityMessage = 'Your system does not meet the compatibility requirements.';
+            }
+
+            document.getElementById('result').textContent = compatibilityMessage;
+        }
+
+        // Event listener for button click
+        document.getElementById('checkButton').addEventListener('click', checkCompatibility);
+    </script>
+</body>
+</html>
